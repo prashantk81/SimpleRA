@@ -1,0 +1,11 @@
+LOAD Advisor
+RES1 <- SELECT Yrs_of_exp <= 4 FROM Advisor
+RES2 <- SELECT Salary > 300000 FROM RES1
+RES3 <- PROJECT Adv_Id, Yrs_of_exp FROM RES2
+RENAME Adv_Id TO adv_id FROM RES3
+RENAME Yrs_of_exp TO yrs_of_exp FROM RES3
+PRINT RES3
+CLEAR RES3
+CLEAR RES2
+CLEAR RES1
+CLEAR Advisor

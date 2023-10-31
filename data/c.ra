@@ -1,0 +1,17 @@
+LOAD Advisor
+LOAD Student
+RES1 <- CROSS Advisor Student
+RES2 <- SELECT Adv_Id == Advisor_id FROM RES1
+RES3 <- SELECT Adv_sex != Stud_sex FROM RES2
+RES4 <- PROJECT Stud_Id, Adv_Id, Stud_sex, Adv_sex FROM RES3
+RENAME Stud_Id TO stud_id FROM RES4
+RENAME Adv_Id TO adv_id FROM RES4
+RENAME Stud_sex TO stud_sex FROM RES4
+RENAME Adv_sex TO adv_sex FROM RES4
+PRINT RES4
+CLEAR RES4
+CLEAR RES3
+CLEAR RES2
+CLEAR RES1
+CLEAR Student
+CLEAR Advisor

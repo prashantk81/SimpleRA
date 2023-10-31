@@ -1,0 +1,16 @@
+LOAD Student
+LOAD Marks
+RES1 <- CROSS Student Marks
+RES2 <- SELECT Student_Stud_Id == Marks_Stud_Id FROM RES1
+RES3 <- SELECT Advisor_id == 2 FROM RES2
+RES4 <- SELECT Maths_marks > 90 FROM RES3
+RES5 <- PROJECT Student_Stud_Id FROM RES4
+RENAME Student_Stud_Id TO stud_id FROM RES5
+PRINT RES5
+CLEAR RES5
+CLEAR RES4
+CLEAR RES3
+CLEAR RES2
+CLEAR RES1
+CLEAR Marks
+CLEAR Student

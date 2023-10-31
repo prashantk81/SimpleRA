@@ -1,0 +1,11 @@
+LOAD Student
+RES1 <- SELECT Stud_sex == 1 FROM Student
+RES2 <- SELECT Stud_age > 16 FROM RES1
+RES3 <- PROJECT Stud_Id, Stud_age FROM RES2
+RENAME Stud_Id TO stud_id FROM RES3
+RENAME Stud_age TO stud_age FROM RES3
+PRINT RES3
+CLEAR RES3
+CLEAR RES2
+CLEAR RES1
+CLEAR Student
